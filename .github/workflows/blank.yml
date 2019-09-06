@@ -15,5 +15,7 @@ jobs:
         ls -hal --color
         which php
         which composer
+        php --version
+        composer --version
 
 
