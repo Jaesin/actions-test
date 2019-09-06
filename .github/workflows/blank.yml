@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: list files
+      run: |
+        pwd,
+        ls -hal --color
+        which php
+        which composer
+
+
