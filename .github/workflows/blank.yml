@@ -17,5 +17,5 @@ jobs:
         which composer
         php --version
         composer --version
-
-
+        which mysql
+        mysql -v
