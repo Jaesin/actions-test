@@ -17,5 +17,6 @@ jobs:
         which composer
         php --version
         composer --version
+        env
         which mysql
         sudo mysql -v
