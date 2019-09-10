@@ -12,7 +12,9 @@ jobs:
 
     - name: Disable xdebug
       run: |
-        php -i | grep -i \"xdebug.ini\" | sed -e 's/,$//'
+        xdebug_ini=$(php -i | grep -i "xdebug.ini" | sed -e 's/,$//')
+        echo $xdebug_ini
+        cat $xdebug_ini
 
     - name: list files
       run: |
