@@ -30,4 +30,4 @@ jobs:
         env
         which mysql
         mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
-        mysql -uroot -proot --port ${{ job.services.mysql.ports['3306'] }} -e "SELECT @@character_set_database, @@collation_database;" testdb
+        mysql -uroot -proot --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -e "SELECT @@character_set_database, @@collation_database;" testdb
