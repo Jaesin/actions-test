@@ -11,6 +11,9 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+          MYSQL_CHARSET: utf8mb4
+          MYSQL_COLLATION: utf8mb4_unicode_ci
 
     steps:
     - uses: actions/checkout@v1
@@ -25,3 +28,4 @@ jobs:
         env
         which mysql
         mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
+        mysql -uroot -proot -e "SELECT @@character_set_database, @@collation_database;" testdb
