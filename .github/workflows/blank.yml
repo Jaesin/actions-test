@@ -25,4 +25,4 @@ jobs:
         composer --version
         env
         which mysql
-        mysql -uroot -proot -e "SHOW VARIABLES LIKE "%version%";"
+        mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
