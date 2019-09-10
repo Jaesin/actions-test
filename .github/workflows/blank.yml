@@ -7,27 +7,15 @@ jobs:
 
     runs-on: ubuntu-18.04
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: testdb
-          MYSQL_CHARSET: utf8mb4
-          MYSQL_COLLATION: utf8mb4_unicode_ci
-        ports: [3306]
-
     steps:
     - uses: actions/checkout@v1
     - name: list files
       run: |
         pwd
         ls -hal --color
-        which php
-        which composer
+        phpenv config-rm xdebug.ini || true
         php --version
         composer --version
         env
         which mysql
         mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
-        mysql -uroot -proot --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -e "SELECT @@character_set_database, @@collation_database;" testdb
