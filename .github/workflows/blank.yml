@@ -13,7 +13,7 @@ jobs:
       run: |
         pwd
         ls -hal --color
-        php -i | grep -i xdebug
+        cat /etc/php/7.3/cli/conf.d/20-xdebug.ini
         php --version
         composer --version
         env
