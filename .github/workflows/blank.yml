@@ -13,7 +13,7 @@ jobs:
       run: |
         pwd
         ls -hal --color
-        phpenv config-rm xdebug.ini || true
+        php -i | grep -i xdebug
         php --version
         composer --version
         env
