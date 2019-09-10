@@ -18,9 +18,10 @@ jobs:
         php -v
 
     - name: list files
-      run: pwd
-      run: ls -hal --color
-      run: composer --version
-      run: env
-      run: which mysql
-      run: mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
+      run: |
+        pwd
+        ls -hal --color
+        composer --version
+        env
+        which mysql
+        mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
