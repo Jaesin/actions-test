@@ -6,6 +6,9 @@ jobs:
   build:
 
     runs-on: ubuntu-18.04
+    
+    env:
+      my_env_variable: This is a test
 
     steps:
     - uses: actions/checkout@v1
