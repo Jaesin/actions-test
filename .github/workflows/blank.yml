@@ -24,5 +24,5 @@ jobs:
         composer --version
         env
         which mysql
-        ln -s /usr/local/bin/mysql $(which mysql)
+        ln -s $(which mysql) /usr/local/bin/mysql
         mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
