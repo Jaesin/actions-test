@@ -10,6 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Environment variables
+      run: env
+
     - name: Disable xdebug
       run: |
         xdebug_ini=$(php -i | grep -i "xdebug.ini" | sed -e 's/,$//')
@@ -19,10 +22,19 @@ jobs:
 
     - name: list files
       run: |
+        echo "Where am I?"
         pwd
+        echo "Files in the current folder:"
         ls -hal --color
-        composer --version
-        env
-        which mysql
-        sudo ln -s $(which mysql) /usr/local/bin/mysql
-        /usr/local/bin/mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
+        
+    - name: Composer
+      run: composer --version
+
+    - name: MySQL
+      run: mysql -uroot -proot -e "SHOW VARIABLES LIKE \"%version%\";"
+
+    - name: Node environement
+      run: |
+        node --version
+        node -e "console.log(process);"
+
