@@ -13,7 +13,8 @@ jobs:
     - name: Disable xdebug
       run: |
         xdebug_ini=$(php -i | grep -i \"xdebug.ini\" | sed -E \'s/,$//\')
-        sed -E \'s/^(zend_extension=.*)/; \1/\' < $xdebug_ini | tee $xdebug_ini
+        echo $xdebug_ini
+        sed -e 's/^(zend_extension=.*)/; \1/' < $xdebug_ini | tee $xdebug_ini
         cat /etc/php/7.3/cli/conf.d/20-xdebug.ini
         php --version
 
